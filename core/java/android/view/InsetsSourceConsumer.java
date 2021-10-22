@@ -433,6 +433,7 @@ public class InsetsSourceConsumer {
             if (DEBUG) Log.d(TAG, "applyRequestedVisibilityToControl: " + mRequestedVisible);
             if (mRequestedVisible) {
                 t.show(mSourceControl.getLeash());
+                t.setAlpha(mSourceControl.getLeash(), 1f);
             } else {
                 t.hide(mSourceControl.getLeash());
             }
