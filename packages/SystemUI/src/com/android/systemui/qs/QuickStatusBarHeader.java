@@ -546,6 +546,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
                 .getStatusBarContentInsetsForCurrentRotation();
         boolean hasCornerCutout = mInsetsProvider.currentRotationHasCornerCutout();
 
+        //mStatusIconsView.setPadding(sbInsets.first, 0, sbInsets.second, 0);
         LinearLayout.LayoutParams datePrivacySeparatorLayoutParams =
                 (LinearLayout.LayoutParams) mDatePrivacySeparator.getLayoutParams();
         LinearLayout.LayoutParams mClockIconsSeparatorLayoutParams =
@@ -646,10 +647,16 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
                 mWaterfallTopInset,
                 mHeaderPaddingRight + mStatusBarPaddingEnd,
                 0);
+<<<<<<< HEAD
         mStatusIconsView.setPadding(0,
+=======
+/*
+        mStatusIconsView.setPadding(paddingLeft,
+>>>>>>> 3f4387448551 (SystemUI: Fix paddings)
                 mWaterfallTopInset,
                 0,
                 0);
+*/
     }
 
     public void updateEverything() {
