@@ -105,5 +105,10 @@ public class SystemSettings {
         Settings.System.LOCKSCREEN_BATTERY_INFO,
         Settings.System.ENABLE_UDFPS_START_HAPTIC_FEEDBACK,
         Settings.System.BLOCK_ALERT,
+        Settings.System.EDGE_LIGHT_ENABLED,
+        Settings.System.EDGE_LIGHT_ALWAYS_TRIGGER_ON_PULSE,
+        Settings.System.EDGE_LIGHT_REPEAT_ANIMATION,
+        Settings.System.EDGE_LIGHT_COLOR_MODE,
+        Settings.System.EDGE_LIGHT_CUSTOM_COLOR,
     };
 }
