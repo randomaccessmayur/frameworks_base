@@ -510,7 +510,8 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                 .addFloat(mQuickQsPanel, "alpha", 1, 0)
                 .addFloat(tileLayout, "alpha", 0, 1)
                 .setListener(mNonFirstPageListener)
-                .setEndDelay(1 - QQS_FADE_IN_INTERVAL)
+                .setInterpolator(Interpolators.ALPHA_OUT)
+                .setEndDelay(0.5f)
                 .build();
     }
 
@@ -623,7 +624,6 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                     qsBrightness.getMeasuredHeight() * 0.5f, 0);
             mBrightnessAnimator = new Builder()
                     .addFloat(qsBrightness, "alpha", 0, 1)
-                    .addFloat(qsBrightness, "sliderScaleY", 0.3f, 1)
                     .setInterpolator(Interpolators.ALPHA_IN)
                     .setStartDelay(0.3f)
                     .build();
