@@ -3190,7 +3190,7 @@ static const JNINativeMethod gMethods[] =
          {"getDirectProfilesForAttributes",
           "(Landroid/media/AudioAttributes;Ljava/util/ArrayList;)I",
           (void *)android_media_AudioSystem_getDirectProfilesForAttributes},
-          {"setAppVolume", "(Ljava/lang/String;F)I",
+         {"setAppVolume", "(Ljava/lang/String;F)I",
           (void *)android_media_AudioSystem_setAppVolume},
          {"setAppMute", "(Ljava/lang/String;Z)I",
           (void *)android_media_AudioSystem_setAppMute},
