@@ -1032,11 +1032,11 @@ public class DeviceIdleController extends SystemService
                 !COMPRESS_TIME ? 10 * 60 * 1000L : 60 * 1000L;
         private static final float DEFAULT_IDLE_PENDING_FACTOR = 2f;
         private static final long DEFAULT_QUICK_DOZE_DELAY_TIMEOUT =
-                !COMPRESS_TIME ? 60 * 1000L : 15 * 1000L;
+                !COMPRESS_TIME ? 30 * 1000L : 10 * 1000L;
         private static final long DEFAULT_IDLE_TIMEOUT =
-                !COMPRESS_TIME ? 60 * 60 * 1000L : 6 * 60 * 1000L;
+                !COMPRESS_TIME ? 30 * 60 * 1000L : 6 * 60 * 1000L;
         private static final long DEFAULT_MAX_IDLE_TIMEOUT =
-                !COMPRESS_TIME ? 6 * 60 * 60 * 1000L : 30 * 60 * 1000L;
+                !COMPRESS_TIME ? 3 * 60 * 60 * 1000L : 30 * 60 * 1000L;
         private static final float DEFAULT_IDLE_FACTOR = 2f;
         private static final long DEFAULT_MIN_TIME_TO_ALARM =
                 !COMPRESS_TIME ? 30 * 60 * 1000L : 6 * 60 * 1000L;
