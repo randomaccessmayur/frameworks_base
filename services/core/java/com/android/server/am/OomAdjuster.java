@@ -2045,7 +2045,7 @@ public class OomAdjuster {
                                     } else {
                                         // make this service persistent
                                         newAdj = ProcessList.PERSISTENT_SERVICE_ADJ;
-                                        schedGroup = ProcessList.SCHED_GROUP_DEFAULT;
+                                        schedGroup = ProcessList.SCHED_GROUP_BACKGROUND;
                                         procState = ActivityManager.PROCESS_STATE_PERSISTENT;
                                         cr.trackProcState(procState, mAdjSeq);
                                         trackedProcState = true;
@@ -2096,7 +2096,7 @@ public class OomAdjuster {
                                 if ((cr.flags&Context.BIND_IMPORTANT) != 0) {
                                     schedGroup = curSchedGroup;
                                 } else {
-                                    schedGroup = ProcessList.SCHED_GROUP_DEFAULT;
+                                    schedGroup = ProcessList.SCHED_GROUP_BACKGROUND;
                                 }
                             }
                             if (clientProcState < PROCESS_STATE_TOP) {
@@ -2423,7 +2423,7 @@ public class OomAdjuster {
         if (adj > state.getMaxAdj()) {
             adj = state.getMaxAdj();
             if (adj <= ProcessList.PERCEPTIBLE_LOW_APP_ADJ) {
-                schedGroup = ProcessList.SCHED_GROUP_DEFAULT;
+                schedGroup = ProcessList.SCHED_GROUP_BACKGROUND;
             }
         }
 
