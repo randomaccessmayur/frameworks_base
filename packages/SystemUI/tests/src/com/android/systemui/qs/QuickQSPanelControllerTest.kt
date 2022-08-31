@@ -128,7 +128,7 @@ class QuickQSPanelControllerTest : SysuiTestCase() {
     }
 
     @Test
-    fun testBrightnessAndMediaExpansionUpdatedWhenConfigurationChanged() {
+    fun testMediaExpansionUpdatedWhenConfigurationChanged() {
         // times(2) because both controller and base controller are registering their listeners
         verify(quickQSPanel, times(2)).addOnConfigurationChangedListener(captor.capture())
 
@@ -140,6 +140,10 @@ class QuickQSPanelControllerTest : SysuiTestCase() {
         captor.allValues.forEach { it.onConfigurationChange(Configuration.EMPTY) }
 
         verify(mediaHost).expansion = MediaHostState.COLLAPSED
+    }
+
+    @Test
+    fun testBrightnessVisibilityRefreshedWhenConfigurationChanged() {
         verify(quickQsBrightnessController).refreshVisibility(anyBoolean())
     }
 
