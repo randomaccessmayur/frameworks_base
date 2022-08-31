@@ -72,7 +72,6 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
             @Named(QS_USING_COLLAPSED_LANDSCAPE_MEDIA) boolean usingCollapsedLandscapeMedia,
             MetricsLogger metricsLogger, UiEventLogger uiEventLogger, QSLogger qsLogger,
             DumpManager dumpManager,
-            @Named(QQS_FOOTER) FooterActionsController footerActionsController,
             TunerService tunerService,
             BrightnessController.Factory brightnessControllerFactory,
             BrightnessSliderController.Factory brightnessSliderFactory
@@ -144,6 +143,23 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
         if (mBrightnessMirrorController != null) {
             mBrightnessSliderController.setMirrorControllerAndMirror(mBrightnessMirrorController);
         }
+    }
+
+    @Override
+    void setListening(boolean listening) {
+        super.setListening(listening);
+
+        // Set the listening as soon as the QS fragment starts listening regardless of the
+        //expansion, so it will update the current brightness before the slider is visible.
+        if (listening) {
+            mBrightnessController.registerCallbacks();
+        } else {
+            mBrightnessController.unregisterCallbacks();
+        }
+    }
+
+    public boolean isListening() {
+        return mView.isListening();
     }
 
     private void setMaxTiles(int parseNumTiles) {
