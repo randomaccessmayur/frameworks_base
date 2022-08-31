@@ -821,9 +821,9 @@ public class NetworkControllerImpl extends BroadcastReceiver
         if (volte1 && volte2) {
             return R.drawable.stat_sys_volte_slot12;
         } else if (volte1) {
-            return R.drawable.stat_sys_volte_slot1;
-        } else if (volte2) {
             return R.drawable.stat_sys_volte_slot2;
+        } else if (volte2) {
+            return R.drawable.stat_sys_volte_slot1;
         }
         return 0;
     }
