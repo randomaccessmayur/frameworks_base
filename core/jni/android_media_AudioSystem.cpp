@@ -3103,13 +3103,7 @@ static const JNINativeMethod gMethods[] =
           (void *)android_media_AudioSystem_getDirectPlaybackSupport},
          {"getDirectProfilesForAttributes",
           "(Landroid/media/AudioAttributes;Ljava/util/ArrayList;)I",
-          (void *)android_media_AudioSystem_getDirectProfilesForAttributes},
-         {"setAppVolume", "(Ljava/lang/String;F)I",
-          (void *)android_media_AudioSystem_setAppVolume},
-         {"setAppMute", "(Ljava/lang/String;Z)I",
-          (void *)android_media_AudioSystem_setAppMute},
-         {"listAppVolumes", "(Ljava/util/ArrayList;)I",
-          (void *)android_media_AudioSystem_listAppVolumes}};
+          (void *)android_media_AudioSystem_getDirectProfilesForAttributes}};
 
 static const JNINativeMethod gEventHandlerMethods[] = {
     {"native_setup",
