@@ -1322,36 +1322,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                     mActivityStarter.startActivity(intent, true /* dismissShade */);
                     return true;
                 }
-        }
-    }
-
-    private boolean shouldShowAppVolume() {
-        ContentResolver cr = mContext.getContentResolver();
-        int showAppVolume = Settings.System.getInt(cr, Settings.System.SHOW_APP_VOLUME, 0);
-        if (showAppVolume == 1) {
-            AudioManager audioManager = mController.getAudioManager();
-            for (AppVolume av : audioManager.listAppVolumes()) {
-                if (av.isActive()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public void initAppVolumeH() {
-        if (mAppVolumeView != null) {
-            mAppVolumeView.setVisibility(shouldShowAppVolume() ? VISIBLE : GONE);
-        }
-        if (mAppVolumeIcon != null) {
-            mAppVolumeIcon.setOnClickListener(v -> {
-                Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
-                Intent intent = new Intent(Settings.Panel.ACTION_APP_VOLUME);
-                dismissH(DISMISS_REASON_SETTINGS_CLICKED);
-                Dependency.get(MediaOutputDialogFactory.class).dismiss();
-                Dependency.get(ActivityStarter.class).startActivity(intent,
-                        true /* dismissShade */);
->>>>>>> 146b2d148154 (VolumePanel: Design changes from Corvus)
             });
         }
     }
