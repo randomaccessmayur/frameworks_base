@@ -45,12 +45,6 @@
             android:orientation="vertical"
             android:gravity="right">
 
-               <include layout="@layout/volume_ringer_drawer" />
-
-                <View
-                    android:layout_height="3dp"
-                    android:layout_width="1dp" />
-
             <FrameLayout
                 android:visibility="gone"
                 android:id="@+id/ringer"
@@ -143,7 +137,13 @@
                 </FrameLayout>
 
                 <View
-                    android:layout_height="3dp"
+                    android:layout_height="2dp"
+                    android:layout_width="1dp" />
+
+               <include layout="@layout/volume_ringer_drawer" />
+
+                <View
+                    android:layout_height="2dp"
                     android:layout_width="1dp" />
 
                 <FrameLayout
