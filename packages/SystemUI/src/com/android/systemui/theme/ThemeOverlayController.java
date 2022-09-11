@@ -118,7 +118,6 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
     private final Handler mBgHandler;
     private final boolean mIsMonetEnabled;
     private final UserTracker mUserTracker;
-    private final ConfigurationController mConfigurationController;
     private final DeviceProvisionedController mDeviceProvisionedController;
     private final Resources mResources;
     // Current wallpaper colors associated to a user.
@@ -150,15 +149,6 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
     private boolean mSkipSettingChange;
 
     private final ConfigurationController mConfigurationController;
-
-    private final ConfigurationListener mConfigurationListener =
-            new ConfigurationListener() {
-                @Override
-                public void onUiModeChanged() {
-                    Log.i(TAG, "Re-applying theme on UI change");
-                    reevaluateSystemTheme(true /* forceReload */);
-                }
-            };
 
     private final DeviceProvisionedListener mDeviceProvisionedListener =
             new DeviceProvisionedListener() {
@@ -369,7 +359,6 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
         super(context);
 
         mIsMonetEnabled = featureFlags.isEnabled(Flags.MONET);
-        mConfigurationController = configurationController;
         mDeviceProvisionedController = deviceProvisionedController;
         mBroadcastDispatcher = broadcastDispatcher;
         mUserManager = userManager;
@@ -451,7 +440,6 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
 
         mUserTracker.addCallback(mUserTrackerCallback, mMainExecutor);
 
-        mConfigurationController.addCallback(mConfigurationListener);
         mDeviceProvisionedController.addCallback(mDeviceProvisionedListener);
 
         // All wallpaper color and keyguard logic only applies when Monet is enabled.
