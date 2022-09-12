@@ -717,7 +717,8 @@ public final class BatteryService extends SystemService {
                         || mBatteryModProps.modStatus != mLastModStatus
                         || mBatteryModProps.modFlag != mLastModFlag
                         || mBatteryModProps.modType != mLastModType
-                        || mBatteryModProps.modPowerSource != mLastModPowerSource)) {
+                        || mBatteryModProps.modPowerSource != mLastModPowerSource
+                        || mInvalidCharger != mLastInvalidCharger)) {
 
             if (mPlugType != mLastPlugType) {
                 if (mLastPlugType == BATTERY_PLUGGED_NONE) {
@@ -1158,9 +1159,9 @@ public final class BatteryService extends SystemService {
             return plugType;
         }
         if (this.mHealthInfo.batteryStatus == BatteryManager.BATTERY_STATUS_CHARGING) {
-            return 1;
+            return BatteryManager.BATTERY_PLUGGED_AC;
         }
-        return 0;
+        return BATTERY_PLUGGED_NONE;
     }
 
     private boolean supplementalOrEmergencyModOnline() {
