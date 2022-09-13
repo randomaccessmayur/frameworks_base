@@ -18,9 +18,9 @@
     android:paddingMode="stack" >
     <item android:id="@android:id/background"
         android:gravity="center_vertical|fill_horizontal">
-        <shape android:tint="#2EC84E" android:shape="rectangle" android:alpha="0.2">
+        <shape android:tint="?android:attr/colorAccent" android:shape="rectangle" android:alpha="0.2">
             <corners android:radius="12dp" />
-            <solid android:color="#80626161" />
+            <solid android:color="@drawable/accent_alpha_2" />
         </shape>
     </item>
     <item android:id="@android:id/progress"
