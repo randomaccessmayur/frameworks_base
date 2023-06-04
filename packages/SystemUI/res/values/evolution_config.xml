@@ -108,4 +108,7 @@
 
     <!-- Unlock ripple animation -->
     <bool name="config_enableUnlockRippleAnimation">true</bool>
+
+    <!-- Number of batteries device have -->
+    <integer name="config_deviceBatteryNum" translatable="false">1</integer>
 </resources>
