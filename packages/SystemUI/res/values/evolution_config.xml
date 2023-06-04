@@ -120,4 +120,7 @@
 
     <!-- Whether the mobile signal icon pipeline should ignore IWlan status -->
     <bool name="config_mobileIconIgnoresIWlan">false</bool>
+
+    <!-- Number of batteries device have -->
+    <integer name="config_deviceBatteryNum" translatable="false">1</integer>
 </resources>
