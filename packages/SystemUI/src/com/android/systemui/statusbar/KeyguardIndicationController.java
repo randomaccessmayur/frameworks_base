@@ -208,6 +208,7 @@ public class KeyguardIndicationController {
     private boolean mInited;
 
     private int mCurrentDivider;
+    private int mBatteryNumber;
 
     private IBatteryPropertiesRegistrar mBatteryPropertiesRegistrar;
     private boolean mAlternateFastchargeInfoUpdate;
@@ -355,6 +356,7 @@ public class KeyguardIndicationController {
         mStatusBarStateListener.onDozingChanged(mStatusBarStateController.isDozing());
 
         mCurrentDivider = mContext.getResources().getInteger(R.integer.config_currentInfoDivider);
+        mBatteryNumber = mContext.getResources().getInteger(R.integer.config_deviceBatteryNum);
         mAlternateFastchargeInfoUpdate =
                     mContext.getResources().getBoolean(R.bool.config_alternateFastchargeInfoUpdate);
         if (mAlternateFastchargeInfoUpdate) {
@@ -1054,7 +1056,7 @@ public class KeyguardIndicationController {
                 batteryInfo = batteryInfo + current + "mA";
             }
             if (mChargingVoltage > 0 && mChargingCurrent > 0) {
-                voltage = (mChargingVoltage / 1000 / 1000);
+                voltage = ((mChargingVoltage * mBatteryNumber) / 1000 / 1000);
                 batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
                 String.format("%.1f" , ((double) current / 1000) * voltage) + "W";
             }

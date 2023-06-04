@@ -99,4 +99,7 @@
 
     <!-- FPS measure interval in milliseconds, default 1000 -->
     <integer name="config_fpsReadInterval">1000</integer>
+
+    <!-- Number of batteries device have -->
+    <integer name="config_deviceBatteryNum" translatable="false">1</integer>
 </resources>
